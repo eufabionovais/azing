@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="css/select2.min.css">
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/plyr.css">
+	<link rel="stylesheet" href="font-awesome/css/all.min.css">
+	<link rel="stylesheet" href="vendor/animate/animate.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
 	<!-- Favicons -->
@@ -128,8 +130,90 @@
 	<!-- home -->
 	<div class="home home--static">
 
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="intro--filter">
+						<div class="intro--filter-presentation">
+							<p>Olá <strong class="highlight">Felipe</strong>, bem vindo a Azing Life!</p><p>Vamos ressignificar a sua vida!</p>
+							<p>Nossos contéudos são revisados por <br><strong class="highlight">médicos</strong>, <strong class="highlight">nutricionistas</strong> e <strong class="highlight">educadores físicos</strong>.</p>
+							<p>Através de inteligência artificial vamos selecionar conteúdos mais relevantes ao seu perfil.</p>
+							<p>Esta tecnologia, aliada ao Azing Energy que você adquiriu, vai colocar seu corpo e mente em um próximo nível, provavelmente em um lugar onde você nunca esteve!</p>
+							<div class="intro--filter-scroll-indicator animated bounce infinite">
+								<i class="fas fa-chevron-down"></i> 
+							</div>							
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="profile--checker">
+
+						<div class="profile--checker-slider owl-carousel" data-profile-slider>
+							<div class="profile--checker-slide">
+								<input type="text" placeholder="Qual a sua idade?" id="idade" data-mask="00">
+								<button class="profile--checker-button" data-custom-next-slider disabled>
+									<i class="fas fa-chevron-right"></i>
+								</button>
+							</div>
+							<div class="profile--checker-slide">
+								<input type="text" placeholder="Insira agora seu peso!" id="peso" data-mask="009">
+								<button class="profile--checker-button"  data-custom-next-slider disabled>
+									<i class="fas fa-chevron-right"></i>
+								</button>
+							</div>								
+							<div class="profile--checker-slide">
+								<input type="text" placeholder="E, por fim, sua altura!" id="altura" data-mask="0,00">
+								<button class="profile--checker-button"  data-custom-next-slider disabled>
+									<i class="fas fa-chevron-right"></i>
+								</button>								
+							</div>
+							<div class="profile--checker-slide">
+								<div class="profile--checker-slide-content">
+									<div class="profile--tag-cloud-wrap">
+										<div class="profile--tag-cloud">
+											<input class="profile--tag-cloud-item" type="button" value="Desenvolvimento">
+											<input class="profile--tag-cloud-item" type="button" value="Auto Estima">
+											<input class="profile--tag-cloud-item" type="button" value="Potência">
+											<input class="profile--tag-cloud-item" type="button" value="Amor">
+											<input class="profile--tag-cloud-item" type="button" value="Prosperidade">
+											<input class="profile--tag-cloud-item" type="button" value="União">
+											<input class="profile--tag-cloud-item" type="button" value="Constância">
+											<input class="profile--tag-cloud-item" type="button" value="Ansiedade">
+											<input class="profile--tag-cloud-item" type="button" value="Determinação">
+											<input class="profile--tag-cloud-item" type="button" value="Disciplina">
+											<input class="profile--tag-cloud-item" type="button" value="Beleza">
+											<input class="profile--tag-cloud-item" type="button" value="Paz">
+											<input class="profile--tag-cloud-item" type="button" value="Corpo">
+											<input class="profile--tag-cloud-item" type="button" value="Mente">
+											<input class="profile--tag-cloud-item" type="button" value="Alma">
+										</div>
+									</div>
+									<button class="profile--checker-button w-auto" id="sendProfile"  data-custom-next-slider disabled>
+										Mudar minha vida
+									</button>	
+								</div>							
+							</div>																							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- end home -->
+
+
+	<div class="loading">
+		<div class="loading-content">
+			<div class="loading-icon">
+			</div>
+			<div class="text">
+				<!-- <p>Selecionando preferências...</p> -->
+				<!-- <p>Calculando intensidade...</p> -->
+				<p>Calibrando Perfil Médio Metabólico...</p>
+				<!-- <p>Finalizado!</p> -->
+			</div>
+		</div>
+	</div>
 
 
 
@@ -219,6 +303,8 @@
 
 	<!-- JS -->
 	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/slider-radio.js"></script>
@@ -226,6 +312,8 @@
 	<script src="js/smooth-scrollbar.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/plyr.min.js"></script>
+	<script src="vendor/jquery.mask/jquery.mask.min.js"></script>
+	<script src="vendor/tagcloud/TagCloud.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

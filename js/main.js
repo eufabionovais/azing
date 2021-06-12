@@ -455,4 +455,78 @@ $(document).ready(function () {
 	}
 
 
+	var profileSlider = $('[data-profile-slider]').owlCarousel({
+		loop: false,
+		items: 1,
+		animateOut: 'slideOutDown',
+		animateIn: 'flipInX',
+		autoHeight: true,
+		smartSpeed: 1000
+	})
+
+	$("[data-custom-next-slider]").on("click", function () {
+		profileSlider.trigger('next.owl.carousel');
+	})
+
+
+	$("#idade").on("input", function () {
+		var inputLength = $(this).val().length;
+		var inputValue = $(this).val();
+		if (inputLength >= 2 && inputValue >= 18) {
+			$(this).next(".profile--checker-button").prop("disabled", false);
+		} else {
+			$(this).next(".profile--checker-button").prop("disabled", true);
+		}
+	})
+
+	$("#peso").on("input", function () {
+		var inputLength = $(this).val().length;
+		//var inputValue = $(this).val();
+		if (inputLength >= 2) {
+			$(this).next(".profile--checker-button").prop("disabled", false);
+		} else {
+			$(this).next(".profile--checker-button").prop("disabled", true);
+		}
+	})
+
+	$("#altura").on("input", function () {
+		var inputLength = $(this).cleanVal().length;
+		if (inputLength >= 3) {
+			$(this).next(".profile--checker-button").prop("disabled", false);
+		} else {
+			$(this).next(".profile--checker-button").prop("disabled", true);
+		}
+	})
+
+	$(".profile--tag-cloud").on("click", ".profile--tag-cloud-item", function () {
+		$(this).toggleClass("active");
+		var activeItems = $(".profile--tag-cloud").find(".profile--tag-cloud-item.active").length;
+		console.log(activeItems);
+		if (activeItems === 3) {
+			$(".profile--tag-cloud").parents(".profile--tag-cloud-wrap").next(".profile--checker-button").prop("disabled", false);
+		} else {
+			$(".profile--tag-cloud").parents(".profile--tag-cloud-wrap").next(".profile--checker-button").prop("disabled", true);
+		}
+	})
+
+	$("#sendProfile").on("click", function () {
+		$(".loading").addClass("visible");
+		setTimeout(function () {
+			window.location.href = "home.html";
+			$(".loading").removeClass("visible");
+
+		}, 4000)
+	})
+
+
+	// function showLoader() {
+	// 	gsap.set(".loading .text p", { opacity: 0, y: 20 })
+	// 	gsap.to(".loading .text p", {
+	// 		opacity: 1, y: 0, stagger: function (index, target, list) {
+	// 			return index * 2;
+	// 		}
+	// 	})
+	// }
+
+
 });
