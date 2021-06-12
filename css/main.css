@@ -6013,6 +6013,7 @@ body::-webkit-scrollbar-thumb {
   position       : relative;
   z-index        : 100;
   transition     : color 0.5s;
+  white-space    : nowrap;
 }
 
 .slider-radio label:hover {

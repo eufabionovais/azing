@@ -6,14 +6,14 @@ $(document).ready(function () {
 	==============================*/
 	var mainHeader = $('.header--hidden');
 	var scrolling = false,
-	previousTop = 0,
-	currentTop = 0,
-	scrollDelta = 10,
-	scrollOffset = 140;
+		previousTop = 0,
+		currentTop = 0,
+		scrollDelta = 10,
+		scrollOffset = 140;
 
 	var scrolling = false;
-	$(window).on('scroll', function(){
-		if( !scrolling ) {
+	$(window).on('scroll', function () {
+		if (!scrolling) {
 			scrolling = true;
 			(!window.requestAnimationFrame)
 				? setTimeout(autoHideHeader, 250)
@@ -36,34 +36,34 @@ $(document).ready(function () {
 			mainHeader.addClass('header--scroll');
 		}
 	}
-	function disableScrolling(){
-		var x=window.scrollX;
-		var y=window.scrollY;
-		window.onscroll=function(){window.scrollTo(x, y);};
+	function disableScrolling() {
+		var x = window.scrollX;
+		var y = window.scrollY;
+		window.onscroll = function () { window.scrollTo(x, y); };
 	}
 
-	function enableScrolling(){
-		window.onscroll=function(){};
+	function enableScrolling() {
+		window.onscroll = function () { };
 	}
 
-	$('.header__menu').on('click', function() {
+	$('.header__menu').on('click', function () {
 		$('.header__menu').toggleClass('header__menu--active');
 		$('.header').toggleClass('header--menu');
 		$('.header__nav').toggleClass('header__nav--active');
 
-		if( $('.header__nav').hasClass('header__nav--active') ) {
+		if ($('.header__nav').hasClass('header__nav--active')) {
 			disableScrolling();
 		} else {
 			enableScrolling();
 		}
 	});
 
-	$('.header__search, .header__form-close').on('click', function() {
+	$('.header__search, .header__form-close').on('click', function () {
 		$('.header__form').toggleClass('header__form--active');
 	});
 
 	$(window).on('scroll', function () {
-		if ( $(window).scrollTop() > 0 ) {
+		if ($(window).scrollTop() > 0) {
 			$('.header--fixed').addClass('header--active');
 		} else {
 			$('.header--fixed').removeClass('header--active');
@@ -74,7 +74,7 @@ $(document).ready(function () {
 	/*==============================
 	Multi level dropdowns
 	==============================*/
-	$('ul.dropdown-menu [data-toggle="dropdown"]').on('click', function(event) {
+	$('ul.dropdown-menu [data-toggle="dropdown"]').on('click', function (event) {
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -92,6 +92,7 @@ $(document).ready(function () {
 		mouseDrag: true,
 		touchDrag: true,
 		dots: true,
+		nav: true,
 		loop: true,
 		autoplay: false,
 		smartSpeed: 600,
@@ -99,23 +100,23 @@ $(document).ready(function () {
 		autoHeight: true,
 		autoWidth: true,
 		responsive: {
-			0 : {
+			0: {
 				items: 2,
 			},
-			576 : {
+			576: {
 				items: 2,
 				margin: 20,
 			},
-			768 : {
+			768: {
 				items: 2,
 				margin: 30,
 				center: true,
 			},
-			1200 : {
+			1200: {
 				items: 3,
 				margin: 30,
 				center: true,
-				mouseDrag: false,
+				mouseDrag: true,
 				dots: false,
 				startPosition: 1,
 				slideBy: 3,
@@ -143,21 +144,21 @@ $(document).ready(function () {
 		margin: 20,
 		autoHeight: true,
 		responsive: {
-			0 : {
+			0: {
 				items: 2,
 			},
-			576 : {
+			576: {
 				items: 3,
 			},
-			768 : {
+			768: {
 				items: 3,
 				margin: 30,
 			},
-			992 : {
+			992: {
 				items: 4,
 				margin: 30,
 			},
-			1200 : {
+			1200: {
 				items: 6,
 				margin: 30,
 				dots: false,
@@ -181,21 +182,21 @@ $(document).ready(function () {
 		margin: 20,
 		autoHeight: true,
 		responsive: {
-			0 : {
+			0: {
 				items: 1,
 			},
-			576 : {
+			576: {
 				items: 2,
 			},
-			768 : {
+			768: {
 				items: 2,
 				margin: 30,
 			},
-			992 : {
+			992: {
 				items: 3,
 				margin: 30,
 			},
-			1200 : {
+			1200: {
 				items: 3,
 				margin: 30,
 				dots: false,
@@ -221,27 +222,27 @@ $(document).ready(function () {
 		margin: 20,
 		autoHeight: true,
 		responsive: {
-			0 : {
+			0: {
 				items: 2,
 			},
-			576 : {
+			576: {
 				items: 3,
 			},
-			768 : {
+			768: {
 				items: 3,
 				margin: 20,
 			},
-			992 : {
+			992: {
 				items: 4,
 				margin: 20,
 			},
-			1200 : {
+			1200: {
 				items: 5,
 				margin: 20,
 				dots: false,
 				mouseDrag: false,
 			},
-			1440 : {
+			1440: {
 				items: 5,
 				margin: 20,
 				dots: false,
@@ -263,21 +264,21 @@ $(document).ready(function () {
 		margin: 20,
 		autoHeight: true,
 		responsive: {
-			0 : {
+			0: {
 				items: 1,
 			},
-			576 : {
+			576: {
 				items: 2,
 			},
-			768 : {
+			768: {
 				items: 2,
 				margin: 30,
 			},
-			992 : {
+			992: {
 				items: 3,
 				margin: 30,
 			},
-			1200 : {
+			1200: {
 				items: 3,
 				margin: 30,
 				dots: false,
@@ -300,23 +301,23 @@ $(document).ready(function () {
 		autoplayHoverPause: true,
 		smartSpeed: 600,
 		margin: 20,
-		responsive : {
-			0 : {
+		responsive: {
+			0: {
 				items: 2,
 			},
-			576 : {
+			576: {
 				items: 2,
 				margin: 30,
 			},
-			768 : {
+			768: {
 				items: 3,
 				margin: 30,
 			},
-			992 : {
+			992: {
 				items: 4,
 				margin: 30,
 			},
-			1200 : {
+			1200: {
 				items: 6,
 				margin: 30,
 			},
@@ -326,11 +327,11 @@ $(document).ready(function () {
 	/*==============================
 	Navigation
 	==============================*/
-	$('.section__nav--prev, .home__nav--prev').on('click', function() {
+	$('.section__nav--prev, .home__nav--prev').on('click', function () {
 		var carouselId = $(this).attr('data-nav');
 		$(carouselId).trigger('prev.owl.carousel');
 	});
-	$('.section__nav--next, .home__nav--next').on('click', function() {
+	$('.section__nav--next, .home__nav--next').on('click', function () {
 		var carouselId = $(this).attr('data-nav');
 		$(carouselId).trigger('next.owl.carousel');
 	});
@@ -338,8 +339,8 @@ $(document).ready(function () {
 	/*==============================
 	Bg
 	==============================*/
-	$('.section--full-bg').each( function() {
-		if ($(this).attr("data-bg")){
+	$('.section--full-bg').each(function () {
+		if ($(this).attr("data-bg")) {
 			$(this).css({
 				'background': 'url(' + $(this).data('bg') + ')',
 				'background-position': 'center center',
@@ -349,8 +350,8 @@ $(document).ready(function () {
 		}
 	});
 
-	$('.section__bg').each( function() {
-		if ($(this).attr("data-bg")){
+	$('.section__bg').each(function () {
+		if ($(this).attr("data-bg")) {
 			$(this).css({
 				'background': 'url(' + $(this).data('bg') + ')',
 				'background-position': 'top center',
@@ -384,12 +385,12 @@ $(document).ready(function () {
 		removalDelay: 300,
 		mainClass: 'mfp-fade',
 		callbacks: {
-			open: function() {
+			open: function () {
 				if ($(window).width() > 1200) {
-					$('.header').css('margin-left', "-" + (getScrollBarWidth()/2) + "px");
+					$('.header').css('margin-left', "-" + (getScrollBarWidth() / 2) + "px");
 				}
 			},
-			close: function() {
+			close: function () {
 				if ($(window).width() > 1200) {
 					$('.header').css('margin-left', 0);
 				}
@@ -414,9 +415,9 @@ $(document).ready(function () {
 		$.magnificPopup.close();
 	});
 
-	function getScrollBarWidth () {
-		var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
-			widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+	function getScrollBarWidth() {
+		var $outer = $('<div>').css({ visibility: 'hidden', width: 100, overflow: 'scroll' }).appendTo('body'),
+			widthWithScroll = $('<div>').css({ width: '100%' }).appendTo($outer).outerWidth();
 		$outer.remove();
 		return 100 - widthWithScroll;
 	};
