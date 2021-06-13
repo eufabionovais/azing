@@ -6446,7 +6446,7 @@ body::-webkit-scrollbar-thumb {
   filter: none;
 }
 
-
+/* INTRO FILTER */
 .intro--filter {
   color      : #fff;
   padding-top: 2rem;
@@ -6474,6 +6474,10 @@ body::-webkit-scrollbar-thumb {
   font-size: 4rem
 }
 
+.profile {
+  background: url("../img/bg-perfil.jpg") no-repeat center 0 / cover;
+}
+
 .profile--checker {
   padding      : 3rem;
   border-style : solid;
@@ -6483,10 +6487,11 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 3rem;
 }
 
-.profile--checker-slider {
-  /* display       : flex;
-  flex-direction: column;
-  align-items   : center; */
+.profile--tag-intro {
+  color        : #fff;
+  text-align   : center;
+  font-size    : 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .profile--checker-slide {
@@ -6500,6 +6505,7 @@ body::-webkit-scrollbar-thumb {
   border       : solid 1px #fbc121;
   border-radius: 10px;
   padding      : 2rem;
+  text-align   : center;
 }
 
 .profile--checker-button {
@@ -6635,6 +6641,7 @@ body::-webkit-scrollbar-thumb {
 .loading .text p {
   margin-bottom: 0;
   position     : absolute;
+  opacity      : 0;
 }
 
 
@@ -6657,4 +6664,38 @@ body::-webkit-scrollbar-thumb {
   to {
     transform: rotate(359deg);
   }
+}
+
+@media screen and (max-width: 768px) {
+  .intro--filter-presentation p {
+    font-size: 2rem;
+  }
+
+  .intro--filter-scroll-indicator {
+    margin   : 1rem 0;
+    font-size: 3rem;
+  }
+
+  .profile--checker {
+    padding: 2rem 1rem;
+  }
+
+  .profile--checker input[type=text] {
+    font-size: 2rem;
+    padding  : 1rem;
+  }
+
+  .profile--checker-button {
+    width    : 5rem;
+    font-size: 4rem;
+  }
+
+  .profile--checker .profile--tag-cloud-item {
+    padding: 1rem;
+  }
+
+  .profile--checker-button.w-auto {
+    font-size: 2.5rem;
+  }
+
 }

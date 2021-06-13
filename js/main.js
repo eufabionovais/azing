@@ -461,15 +461,19 @@ $(document).ready(function () {
 		animateOut: 'slideOutDown',
 		animateIn: 'flipInX',
 		autoHeight: true,
-		smartSpeed: 1000
+		navSpeed: 250
 	})
 
-	$("[data-custom-next-slider]").on("click", function () {
+	$("[data-custom-next-slider]").on("click", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
 		profileSlider.trigger('next.owl.carousel');
 	})
 
 
-	$("#idade").on("input", function () {
+	$("#idade").on("input", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
 		var inputLength = $(this).val().length;
 		var inputValue = $(this).val();
 		if (inputLength >= 2 && inputValue >= 18) {
@@ -479,9 +483,10 @@ $(document).ready(function () {
 		}
 	})
 
-	$("#peso").on("input", function () {
+	$("#peso").on("input", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
 		var inputLength = $(this).val().length;
-		//var inputValue = $(this).val();
 		if (inputLength >= 2) {
 			$(this).next(".profile--checker-button").prop("disabled", false);
 		} else {
@@ -498,35 +503,40 @@ $(document).ready(function () {
 		}
 	})
 
-	$(".profile--tag-cloud").on("click", ".profile--tag-cloud-item", function () {
+	$(".profile--tag-cloud").on("click", ".profile--tag-cloud-item", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
 		$(this).toggleClass("active");
 		var activeItems = $(".profile--tag-cloud").find(".profile--tag-cloud-item.active").length;
-		console.log(activeItems);
 		if (activeItems === 3) {
 			$(".profile--tag-cloud").parents(".profile--tag-cloud-wrap").next(".profile--checker-button").prop("disabled", false);
 		} else {
+			if (activeItems > 3) {
+				$(this).removeClass("active");
+				alert("Você já selecionou 3 palavras. Confirme suas escolhas!")
+				return;
+			}
 			$(".profile--tag-cloud").parents(".profile--tag-cloud-wrap").next(".profile--checker-button").prop("disabled", true);
 		}
 	})
 
 	$("#sendProfile").on("click", function () {
 		$(".loading").addClass("visible");
-		setTimeout(function () {
-			window.location.href = "home.html";
-			$(".loading").removeClass("visible");
-
-		}, 4000)
+		showLoader();
 	})
 
 
-	// function showLoader() {
-	// 	gsap.set(".loading .text p", { opacity: 0, y: 20 })
-	// 	gsap.to(".loading .text p", {
-	// 		opacity: 1, y: 0, stagger: function (index, target, list) {
-	// 			return index * 2;
-	// 		}
-	// 	})
-	// }
+	window.showLoader = function showLoader() {
+		var loadTexts = Array.from(document.querySelectorAll(".loading .text p"));
+		var tl = new gsap.timeline({ onComplete: redirectToHome });
+		loadTexts.forEach(function (element, index) {
+			tl.to(loadTexts, { duration: 0.3, opacity: 0, y: 20 })
+			tl.to(element, { duration: 2, opacity: 1, y: 0, delay: 0.5 })
+		})
+	}
 
+	function redirectToHome() {
+		window.location.href = "home.html";
+	}
 
 });
