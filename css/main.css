@@ -247,7 +247,7 @@ body::-webkit-scrollbar-thumb {
   display    : block;
   margin-left: 35px;
   height     : auto;
-  width      : 80px;
+  width      : 130px;
 }
 
 .header__logo img {
@@ -5494,7 +5494,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .sign__logo img {
-  width: 90px;
+  width: 130px;
 }
 
 .sign__title {
